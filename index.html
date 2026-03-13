@@ -89,93 +89,87 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 16px;
-            max-width: 1400px;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 20px;
+            max-width: 1200px;
             margin: 0 auto;
             width: 100%;
             height: 100%;
         }
 
-        .hero-box {
-            border-radius: 20px;
-            padding: 36px;
+        /* Left column - 2 stacked boxes */
+        .hero-left {
             display: flex;
             flex-direction: column;
+            gap: 16px;
             height: 100%;
         }
 
-        .hero-box-1 {
+        .hero-box-main {
             background: #c8e6c9;
+            border-radius: 20px;
+            padding: 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-box-cta {
+            background: #2d4a3d;
+            border-radius: 20px;
+            padding: 28px 36px;
+            display: flex;
+            align-items: center;
             justify-content: space-between;
         }
 
-        .hero-box-2 {
-            background: #cfd8dc;
-            justify-content: center;
+        .hero-box-cta a {
+            color: white;
+            font-size: 22px;
+            font-weight: 500;
+            text-decoration: none;
+            display: flex;
             align-items: center;
-            position: relative;
+            justify-content: space-between;
+            width: 100%;
         }
 
-        .hero-box-3 {
-            background: #e8e0d5;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-content {
-            flex: 1;
+        .hero-box-cta span {
+            font-size: 28px;
         }
 
         .hero h1 {
-            font-size: 44px;
+            font-size: 48px;
             font-weight: 400;
-            line-height: 1.2;
+            line-height: 1.15;
             color: #1a1a1a;
             margin-bottom: 20px;
             font-family: 'Times New Roman', Times, serif;
         }
 
-        .hero p {
+        .hero-box-main p {
             font-size: 17px;
             color: #444;
             line-height: 1.7;
-            margin-bottom: 28px;
         }
 
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #2d4a3d;
-            color: white;
-            padding: 22px 30px;
-            border-radius: 16px;
-            font-size: 17px;
-            font-weight: 500;
-            text-decoration: none;
-            width: 100%;
-            max-width: 260px;
-            transition: all 0.2s;
-        }
-
-        .hero-cta:hover {
-            background: #1d3a2d;
-            transform: translateY(-2px);
-        }
-
-        .hero-cta span {
-            font-size: 20px;
-        }
-
-        /* Feature cards in boxes */
-        .feature-stack {
+        /* Right column - 1 box with 3 cards */
+        .hero-right {
+            background: #cfd8dc;
+            border-radius: 20px;
+            padding: 32px;
             display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 100%;
-            max-width: 280px;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 100%;
+        }
+
+        .cards-container {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
         }
 
         .feature-card {
@@ -184,6 +178,16 @@
             padding: 20px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             border: 1px dashed #b0bec5;
+            width: 180px;
+            position: relative;
+        }
+
+        .feature-card:nth-child(2) {
+            margin-top: 40px;
+        }
+
+        .feature-card:nth-child(3) {
+            margin-top: 20px;
         }
 
         .feature-card img {
@@ -208,84 +212,33 @@
         }
 
         .feature-card .detail {
-            font-size: 13px;
+            font-size: 12px;
             color: #888;
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .feature-card .tag {
             display: inline-block;
             background: #e8f5e9;
             color: #2d4a3d;
-            font-size: 11px;
+            font-size: 10px;
             padding: 4px 10px;
             border-radius: 12px;
             margin-top: 10px;
         }
 
-        .box-label {
+        .card-label {
             position: absolute;
-            bottom: 24px;
+            bottom: -30px;
             left: 50%;
             transform: translateX(-50%);
             background: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 13px;
+            padding: 6px 16px;
+            border-radius: 16px;
+            font-size: 12px;
             font-weight: 600;
             color: #333;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        /* Stats card */
-        .stats-card {
-            background: white;
-            border-radius: 14px;
-            padding: 24px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            width: 100%;
-            max-width: 280px;
-            border: 1px dashed #d4c4b0;
-        }
-
-        .stats-card h4 {
-            font-size: 28px;
-            font-weight: 600;
-            color: #2d4a3d;
-            margin-bottom: 4px;
-        }
-
-        .stats-card .trend {
-            color: #4caf50;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .stats-card .chart {
-            height: 60px;
-            margin: 16px 0;
-            background: linear-gradient(90deg, #e8f5e9 0%, #c8e6c9 100%);
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stats-card .chart::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Cpath d='M0,50 Q30,45 50,35 T100,25 T150,30 T200,15' fill='none' stroke='%232d4a3d' stroke-width='2'/%3E%3C/svg%3E") no-repeat center;
-            background-size: cover;
-        }
-
-        .stats-card .label {
-            font-size: 12px;
-            color: #888;
+            white-space: nowrap;
         }
 
         /* Social Proof */
@@ -474,31 +427,18 @@
         }
 
         /* Responsive */
-        @media (max-width: 1100px) {
-            .hero-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .hero-box-3 {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                height: auto;
-                min-height: calc(100vh - 72px);
-            }
+        @media (max-width: 900px) {
             .hero-grid {
                 grid-template-columns: 1fr;
             }
-            .hero-box-2, .hero-box-3 {
+            .hero-right {
                 display: none;
             }
-            .hero-box {
-                min-height: 400px;
-            }
             .hero h1 {
-                font-size: 32px;
+                font-size: 36px;
+            }
+            .hero-left {
+                min-height: 400px;
             }
             .guide-row {
                 flex-direction: column;
@@ -530,54 +470,48 @@
 
     <section class="hero">
         <div class="hero-grid">
-            <!-- Box 1: Main CTA -->
-            <div class="hero-box hero-box-1">
-                <div class="hero-content">
+            <!-- Left: 2 stacked boxes -->
+            <div class="hero-left">
+                <div class="hero-box-main">
                     <h1>Therapy helps, but it doesn't help everyone.</h1>
                     <p>Millions live disconnected and without a sense of home. The scientific world gives us tools for innovation, but it cannot tell us how to live.</p>
                 </div>
-                <a href="#guides" class="hero-cta">
-                    Find Your Guide
-                    <span>→</span>
-                </a>
+                <div class="hero-box-cta">
+                    <a href="#guides">
+                        Find Your Guide
+                        <span>→</span>
+                    </a>
+                </div>
             </div>
 
-            <!-- Box 2: Browse Guides -->
-            <div class="hero-box hero-box-2">
-                <div class="feature-stack">
+            <!-- Right: 1 box with 3 cards -->
+            <div class="hero-right">
+                <div class="cards-container">
                     <div class="feature-card">
                         <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop" alt="">
                         <h4>Sarah Chen</h4>
-                        <p class="role">Hospice Chaplain · Boston</p>
-                        <p class="detail">⭐ 4.9 · 142 sessions</p>
+                        <p class="role">Hospice Chaplain</p>
+                        <p class="detail">✓ Available now</p>
                         <span class="tag">Grief & Loss</span>
+                        <span class="card-label">Chaplains</span>
                     </div>
                     <div class="feature-card">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="">
                         <h4>Marcus Webb</h4>
-                        <p class="role">Philosopher · New York</p>
-                        <p class="detail">⭐ 5.0 · 89 sessions</p>
+                        <p class="role">Philosophical Counselor</p>
+                        <p class="detail">$2/min · ★ 4.9</p>
                         <span class="tag">Life Decisions</span>
+                        <span class="card-label">Philosophers</span>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="">
+                        <h4>Tara Mitchell</h4>
+                        <p class="role">Meditation Teacher</p>
+                        <p class="detail">256 sessions</p>
+                        <span class="tag">Mindfulness</span>
+                        <span class="card-label">Teachers</span>
                     </div>
                 </div>
-                <span class="box-label">Browse</span>
-            </div>
-
-            <!-- Box 3: Impact -->
-            <div class="hero-box hero-box-3">
-                <div class="stats-card">
-                    <h4>2,847</h4>
-                    <span class="trend">↑ 12%</span>
-                    <div class="chart"></div>
-                    <p class="label">Lives touched this month</p>
-                </div>
-                <div class="feature-stack" style="margin-top: 16px;">
-                    <div class="feature-card" style="border-color: #d4c4b0;">
-                        <p class="detail" style="margin: 0;">💬 "Finally found someone who gets it."</p>
-                        <p class="role" style="margin-top: 8px; margin-bottom: 0;">— Anonymous, grief counseling</p>
-                    </div>
-                </div>
-                <span class="box-label">Impact</span>
             </div>
         </div>
     </section>
