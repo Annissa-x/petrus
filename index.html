@@ -62,258 +62,256 @@
             content: '✳';
         }
 
-        /* Hero */
+        /* Hero - 1517 Style */
         .hero {
             min-height: 100vh;
             padding: 140px 48px 80px;
             display: flex;
             align-items: center;
             position: relative;
-            overflow: hidden;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 700px;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(48px, 10vw, 100px);
+            font-size: clamp(52px, 9vw, 90px);
             font-weight: 900;
             line-height: 1.0;
             color: #1a1a1a;
             margin-bottom: 40px;
         }
 
+        .hero h1 .underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 .underline::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,8 Q50,2 100,8 T200,8' stroke='%238b3a3a' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+            background-size: 100% 100%;
+            z-index: -1;
+        }
+
         .hero-subtitle {
-            font-size: 18px;
-            color: #444;
+            font-size: 17px;
+            color: #555;
             max-width: 500px;
             line-height: 1.8;
         }
 
-        .hero-subtitle strong {
-            color: #1a1a1a;
-        }
-
         .hero-decoration {
             position: absolute;
-            right: 5%;
+            right: 8%;
             top: 50%;
             transform: translateY(-50%);
-            width: 400px;
-            height: 400px;
+            width: 350px;
+            height: 350px;
             pointer-events: none;
+            opacity: 0.6;
         }
 
-        .hero-decoration svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Section */
-        .section {
-            padding: 100px 48px;
-            max-width: 1200px;
+        /* Main Content */
+        .main {
+            max-width: 1000px;
             margin: 0 auto;
+            padding: 24px 48px 80px;
         }
 
-        .section-divider {
+        /* Filter Bar */
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #d5d0c8;
+        }
+
+        .filter-tabs {
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 40px 0;
+            gap: 8px;
         }
 
-        .section-divider svg {
-            width: 40px;
-            height: 60px;
-            color: #8b3a3a;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(32px, 5vw, 56px);
-            font-weight: 900;
-            font-style: italic;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-        }
-
-        .section-header p {
-            font-size: 16px;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Guide Cards - 1517 Style */
-        .guide-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .guide-card {
-            background: white;
-            border: 1px solid #e0dcd5;
-            padding: 0;
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .guide-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-        }
-
-        .guide-card.featured {
-            background: #2d5a6b;
-            color: white;
-            border: none;
-        }
-
-        .guide-card-image {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 32px;
-        }
-
-        .guide-card-image img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            filter: grayscale(100%);
-        }
-
-        .guide-card.featured .guide-card-image img {
-            filter: grayscale(100%) brightness(1.2);
-        }
-
-        .guide-card-content {
-            padding: 24px 32px 32px;
-        }
-
-        .guide-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .guide-card.featured h3 {
-            color: white;
-        }
-
-        .guide-card p {
+        .filter-label {
             font-size: 14px;
             color: #666;
-            line-height: 1.7;
+            margin-right: 8px;
         }
 
-        .guide-card.featured p {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .guide-card-meta {
-            font-size: 12px;
-            color: #999;
-            margin-top: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .guide-card.featured .guide-card-meta {
-            color: rgba(255,255,255,0.6);
-        }
-
-        /* Quote Section */
-        .quote-section {
-            padding: 80px 48px;
-            text-align: center;
-            position: relative;
-        }
-
-        .quote-section::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #d0ccc5, transparent);
-        }
-
-        .quote {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(24px, 4vw, 42px);
-            font-style: italic;
-            color: #1a1a1a;
-            max-width: 900px;
-            margin: 0 auto 24px;
-            line-height: 1.4;
-        }
-
-        .quote-author {
-            font-size: 16px;
-            color: #8b3a3a;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 48px;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(36px, 6vw, 64px);
-            font-weight: 900;
-            color: #1a1a1a;
-            margin-bottom: 24px;
-        }
-
-        .cta-section p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 40px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: #8b3a3a;
-            color: white;
-            padding: 20px 40px;
-            text-decoration: none;
-            font-size: 16px;
+        .filter-tab {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
             font-weight: 500;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: #666;
             transition: all 0.2s;
         }
 
-        .cta-button:hover {
-            background: #6d2d2d;
-            transform: translateY(-2px);
+        .filter-tab:hover {
+            color: #8b3a3a;
         }
 
-        .cta-button::after {
-            content: '→';
+        .filter-tab.active {
+            background: #8b3a3a;
+            color: white;
+        }
+
+        .sort-by {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .sort-by select {
+            border: none;
+            background: none;
+            color: #8b3a3a;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* Guide List */
+        .guide-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-row {
+            display: flex;
+            gap: 24px;
+            padding: 32px 0;
+            border-bottom: 1px solid #e5e0d8;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .guide-row.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .guide-row:last-child {
+            border-bottom: none;
+        }
+
+        .guide-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+            filter: grayscale(30%);
+        }
+
+        .guide-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .guide-title {
+            font-family: 'Playfair Display', serif;
             font-size: 20px;
+            font-weight: 400;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .guide-meta {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .guide-meta strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .guide-bio {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .guide-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 12px;
+            min-width: 160px;
+        }
+
+        .guide-price {
+            text-align: center;
+        }
+
+        .guide-price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .guide-price-label {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .guide-cta {
+            background: #8b3a3a;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .guide-cta:hover {
+            background: #6d2d2d;
+        }
+
+        .guide-rating {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+        }
+
+        .guide-stars {
+            color: #d4a853;
+        }
+
+        .guide-review-count {
+            color: #888;
         }
 
         /* Footer */
@@ -322,7 +320,7 @@
             text-align: center;
             font-size: 14px;
             color: #888;
-            border-top: 1px solid #e0dcd5;
+            border-top: 1px solid #d5d0c8;
         }
 
         .footer a {
@@ -331,7 +329,7 @@
         }
 
         /* Responsive */
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
             .header {
                 padding: 20px 24px;
             }
@@ -344,16 +342,23 @@
                 display: none;
             }
 
-            .section {
-                padding: 60px 24px;
+            .main {
+                padding: 24px;
             }
 
-            .guide-grid {
-                grid-template-columns: 1fr;
+            .guide-row {
+                flex-direction: column;
+                gap: 16px;
             }
 
-            .quote-section {
-                padding: 60px 24px;
+            .guide-photo {
+                width: 100%;
+                height: 200px;
+            }
+
+            .guide-actions {
+                width: 100%;
+                align-items: stretch;
             }
         }
     </style>
@@ -366,118 +371,190 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Therapy helps millions, but it doesn't help everyone.</h1>
+            <h1>Therapy helps millions, but it doesn't help <span class="underline">everyone.</span></h1>
             <p class="hero-subtitle">
-                Millions live <strong>disconnected</strong> and without a sense of home. 
-                The scientific world gives us tools for innovation, but it cannot tell us <strong>how to live</strong>. 
-                We connect you with physicians of the soul.
+                Millions live disconnected and without a sense of home. 
+                The scientific world gives us tools for innovation, but it cannot tell us how to live.
             </p>
         </div>
         <div class="hero-decoration">
-            <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="200" cy="200" r="150" stroke="#8b3a3a" stroke-width="0.5" fill="none" opacity="0.3"/>
-                <circle cx="200" cy="200" r="120" stroke="#8b3a3a" stroke-width="0.5" fill="none" opacity="0.3"/>
-                <circle cx="200" cy="200" r="90" stroke="#8b3a3a" stroke-width="0.5" fill="none" opacity="0.3"/>
-                <path d="M200,50 Q350,200 200,350 Q50,200 200,50" stroke="#8b3a3a" stroke-width="0.5" fill="none" opacity="0.4"/>
+            <svg viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="175" cy="175" r="140" stroke="#8b3a3a" stroke-width="0.5" fill="none" opacity="0.5"/>
+                <circle cx="175" cy="175" r="110" stroke="#8b3a3a" stroke-width="0.5" fill="none" opacity="0.4"/>
+                <circle cx="175" cy="175" r="80" stroke="#8b3a3a" stroke-width="0.5" fill="none" opacity="0.3"/>
+                <path d="M175,35 Q315,175 175,315 Q35,175 175,35" stroke="#8b3a3a" stroke-width="0.5" fill="none" opacity="0.4"/>
+                <path d="M50,175 Q175,50 300,175 Q175,300 50,175" stroke="#8b3a3a" stroke-width="0.5" fill="none" opacity="0.3"/>
             </svg>
         </div>
     </section>
 
-    <div class="section-divider">
-        <svg viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20,0 L20,25 M20,35 L20,60" stroke="currentColor" stroke-width="1"/>
-            <circle cx="20" cy="30" r="5" stroke="currentColor" stroke-width="1" fill="none"/>
-        </svg>
-    </div>
-
-    <section class="quote-section">
-        <p class="quote">"A real education is a liberation."</p>
-        <p class="quote-author">— Nietzsche</p>
-    </section>
-
-    <section class="section" id="guides">
-        <div class="section-header">
-            <h2>Meet the Guides</h2>
-            <p>Chaplains, philosophers, and wisdom practitioners trained in the conversations that actually matter.</p>
-        </div>
-
-        <div class="guide-grid">
-            <div class="guide-card featured">
-                <div class="guide-card-image">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop" alt="">
-                </div>
-                <div class="guide-card-content">
-                    <h3>Sarah Chen</h3>
-                    <p>"The wound is the place where the Light enters you." <em>— Rumi</em></p>
-                    <p class="guide-card-meta">Hospice Chaplain · Boston</p>
-                </div>
+    <main class="main" id="guides">
+        <div class="filter-bar">
+            <div class="filter-tabs">
+                <span class="filter-label">Showing:</span>
+                <button class="filter-tab active">All</button>
+                <button class="filter-tab">Featured</button>
+                <button class="filter-tab">Popular</button>
+                <button class="filter-tab">New</button>
             </div>
-
-            <div class="guide-card">
-                <div class="guide-card-image">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="">
-                </div>
-                <div class="guide-card-content">
-                    <h3>Marcus Webb</h3>
-                    <p>"The unexamined life is not worth living." <em>— Socrates</em></p>
-                    <p class="guide-card-meta">Philosopher · New York</p>
-                </div>
-            </div>
-
-            <div class="guide-card">
-                <div class="guide-card-image">
-                    <img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=200&h=200&fit=crop" alt="">
-                </div>
-                <div class="guide-card-content">
-                    <h3>James Okafor</h3>
-                    <p>"The only true wisdom is in knowing you know nothing." <em>— Socrates</em></p>
-                    <p class="guide-card-meta">Interfaith Minister · London</p>
-                </div>
-            </div>
-
-            <div class="guide-card">
-                <div class="guide-card-image">
-                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop" alt="">
-                </div>
-                <div class="guide-card-content">
-                    <h3>Elena Vasquez</h3>
-                    <p>"We suffer more in imagination than in reality." <em>— Seneca</em></p>
-                    <p class="guide-card-meta">Stoicism Teacher · Austin</p>
-                </div>
-            </div>
-
-            <div class="guide-card">
-                <div class="guide-card-image">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop" alt="">
-                </div>
-                <div class="guide-card-content">
-                    <h3>David Kim</h3>
-                    <p>"Doubt is not the opposite of faith; it is one element of faith." <em>— Paul Tillich</em></p>
-                    <p class="guide-card-meta">Pastor · Seattle</p>
-                </div>
-            </div>
-
-            <div class="guide-card">
-                <div class="guide-card-image">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop" alt="">
-                </div>
-                <div class="guide-card-content">
-                    <h3>Tara Mitchell</h3>
-                    <p>"Pain is inevitable. Suffering is optional." <em>— Buddhist saying</em></p>
-                    <p class="guide-card-meta">Meditation Teacher · Portland</p>
-                </div>
+            <div class="sort-by">
+                <span>Sort by:</span>
+                <select>
+                    <option>Best Match</option>
+                    <option>Price: Low to High</option>
+                    <option>Highest Rated</option>
+                </select>
             </div>
         </div>
-    </section>
 
-    <section class="cta-section">
-        <h2>Ready to talk?</h2>
-        <p>Find someone who understands the questions you're asking.</p>
-        <a href="#guides" class="cta-button">Browse All Guides</a>
-    </section>
+        <div class="guide-list">
+            <div class="guide-row">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=280&h=280&fit=crop" alt="Sarah Chen" class="guide-photo">
+                <div class="guide-info">
+                    <h3 class="guide-title">"The wound is the place where the Light enters you." — Rumi</h3>
+                    <p class="guide-meta"><strong>Sarah Chen</strong> · Hospice Chaplain · Boston, MA</p>
+                    <p class="guide-bio">Most of my work is in hospitals — with patients, families, and sometimes staff who've seen too much. I don't come with scripture or answers. I come to listen. People often ask what they're supposed to feel or believe at the end. I help them find their own way through.</p>
+                </div>
+                <div class="guide-actions">
+                    <div class="guide-price">
+                        <span class="guide-price-amount">$1</span>
+                        <span class="guide-price-label">per minute</span>
+                    </div>
+                    <button class="guide-cta">Request a Call</button>
+                    <div class="guide-rating">
+                        <span class="guide-stars">★★★★★</span>
+                        <span class="guide-review-count">(142)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-row">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=280&h=280&fit=crop" alt="Marcus Webb" class="guide-photo">
+                <div class="guide-info">
+                    <h3 class="guide-title">"The unexamined life is not worth living." — Socrates</h3>
+                    <p class="guide-meta"><strong>Marcus Webb</strong> · Philosophical Counselor · New York, NY</p>
+                    <p class="guide-bio">I trained in academic philosophy but found I was more interested in helping real people think than writing papers no one reads. I work with people stuck on questions like: Is this the right career? Should I end this relationship? What do I actually owe my family?</p>
+                </div>
+                <div class="guide-actions">
+                    <div class="guide-price">
+                        <span class="guide-price-amount">$2</span>
+                        <span class="guide-price-label">per minute</span>
+                    </div>
+                    <button class="guide-cta">Request a Call</button>
+                    <div class="guide-rating">
+                        <span class="guide-stars">★★★★★</span>
+                        <span class="guide-review-count">(89)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-row">
+                <img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=280&h=280&fit=crop" alt="James Okafor" class="guide-photo">
+                <div class="guide-info">
+                    <h3 class="guide-title">"The only true wisdom is in knowing you know nothing." — Socrates</h3>
+                    <p class="guide-meta"><strong>James Okafor</strong> · Interfaith Minister · London, UK</p>
+                    <p class="guide-bio">I grew up in the church, left it, came back on my own terms. Now I work with people exploring what spirituality means to them — especially those hurt by religion or skeptical of it. I'm not here to convert anyone to anything.</p>
+                </div>
+                <div class="guide-actions">
+                    <div class="guide-price">
+                        <span class="guide-price-amount">$1.50</span>
+                        <span class="guide-price-label">per minute</span>
+                    </div>
+                    <button class="guide-cta">Request a Call</button>
+                    <div class="guide-rating">
+                        <span class="guide-stars">★★★★★</span>
+                        <span class="guide-review-count">(203)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-row">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=280&h=280&fit=crop" alt="Elena Vasquez" class="guide-photo">
+                <div class="guide-info">
+                    <h3 class="guide-title">"We suffer more in imagination than in reality." — Seneca</h3>
+                    <p class="guide-meta"><strong>Elena Vasquez</strong> · Stoicism Teacher · Austin, TX</p>
+                    <p class="guide-bio">I teach practical Stoicism — the daily exercises, the journaling practices, the mental frameworks that Marcus Aurelius and Seneca used to stay sane in chaotic times. This isn't about suppressing emotions. It's about not being at the mercy of things you can't control.</p>
+                </div>
+                <div class="guide-actions">
+                    <div class="guide-price">
+                        <span class="guide-price-amount">$1.50</span>
+                        <span class="guide-price-label">per minute</span>
+                    </div>
+                    <button class="guide-cta">Request a Call</button>
+                    <div class="guide-rating">
+                        <span class="guide-stars">★★★★☆</span>
+                        <span class="guide-review-count">(67)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-row">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=280&h=280&fit=crop" alt="David Kim" class="guide-photo">
+                <div class="guide-info">
+                    <h3 class="guide-title">"Doubt is not the opposite of faith; it is one element of faith." — Tillich</h3>
+                    <p class="guide-meta"><strong>David Kim</strong> · Pastor · Seattle, WA</p>
+                    <p class="guide-bio">I lead a small progressive congregation, but half the people I talk to aren't religious. They're deconstructing, or they left the church years ago but something still feels unfinished. I'm not interested in defending doctrine. I'm interested in what faith means in your actual life.</p>
+                </div>
+                <div class="guide-actions">
+                    <div class="guide-price">
+                        <span class="guide-price-amount">$1</span>
+                        <span class="guide-price-label">per minute</span>
+                    </div>
+                    <button class="guide-cta">Request a Call</button>
+                    <div class="guide-rating">
+                        <span class="guide-stars">★★★★★</span>
+                        <span class="guide-review-count">(178)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-row">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=280&h=280&fit=crop" alt="Tara Mitchell" class="guide-photo">
+                <div class="guide-info">
+                    <h3 class="guide-title">"Pain is inevitable. Suffering is optional." — Buddhist saying</h3>
+                    <p class="guide-meta"><strong>Tara Mitchell</strong> · Meditation Teacher · Portland, OR</p>
+                    <p class="guide-bio">I've taught meditation for 15 years, mostly to people who tried apps and podcasts but couldn't make it stick. I draw from Buddhist traditions but I'm not religious about it — think of it as attention training. Most people come to me because they're fighting something they can't win against.</p>
+                </div>
+                <div class="guide-actions">
+                    <div class="guide-price">
+                        <span class="guide-price-amount">$2</span>
+                        <span class="guide-price-label">per minute</span>
+                    </div>
+                    <button class="guide-cta">Request a Call</button>
+                    <div class="guide-rating">
+                        <span class="guide-stars">★★★★★</span>
+                        <span class="guide-review-count">(256)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <footer class="footer">
         <p>Questions? <a href="mailto:annissap11@gmail.com">Get in touch</a></p>
     </footer>
+
+    <script>
+        // Filter tabs
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.guide-row').forEach(row => {
+            observer.observe(row);
+        });
+    </script>
 </body>
 </html>
