@@ -16,427 +16,337 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #f9f7f4;
-            color: #3d5a45;
+            background: #f9f9f9;
+            color: #333;
             line-height: 1.6;
         }
 
         /* Header */
         .header {
             background: #3d5a45;
-            padding: 16px 24px;
+            padding: 0 24px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            height: 64px;
+            gap: 32px;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
             color: white;
             text-decoration: none;
         }
 
-        .logo-mark {
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .categories-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .categories-btn::after {
+            content: '▼';
+            font-size: 10px;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 16px 10px 40px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 6px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 14px;
+        }
+
+        .search-bar input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .search-bar::before {
+            content: '🔍';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-left: auto;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        .nav-profile {
             width: 36px;
             height: 36px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .logo-text {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .header-cta {
-            background: rgba(255,255,255,0.15);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: background 0.2s;
-        }
-
-        .header-cta:hover {
-            background: rgba(255,255,255,0.25);
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7dd3c0, #4a9079);
         }
 
         /* Hero */
         .hero {
-            background: linear-gradient(rgba(61,90,69,0.85), rgba(45,68,51,0.9)), 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), 
                         url('https://upload.wikimedia.org/wikipedia/commons/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg') center/cover no-repeat;
-            background-color: #3d5a45;
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
             padding: 60px 24px;
             color: white;
         }
 
         .hero-content {
-            max-width: 650px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 52px;
+            font-size: 42px;
             font-weight: 700;
-            margin-bottom: 24px;
-            line-height: 1.15;
+            margin-bottom: 12px;
         }
 
         .hero p {
-            font-size: 17px;
-            opacity: 0.95;
-            margin-bottom: 36px;
-            line-height: 1.8;
-        }
-
-        .hero-cta {
-            display: inline-block;
-            background: #8fbc8f;
-            color: #1a1a1a;
-            padding: 18px 40px;
-            border-radius: 28px;
-            font-weight: 700;
             font-size: 18px;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
+            opacity: 0.95;
+            max-width: 600px;
         }
 
-        .hero-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-            background: #9fcf9f;
-        }
-
-        .hero-secondary {
-            display: inline-block;
-            margin-left: 20px;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            opacity: 0.9;
-        }
-
-        .hero-secondary:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
-        /* Section */
-        .section {
+        /* Main Content */
+        .main {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 64px 24px;
+            padding: 24px;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 48px;
+        /* Filter Bar */
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e5e5e5;
         }
 
-        .section-header h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #3d5a45;
-        }
-
-        .section-header p {
-            font-size: 18px;
-            color: #5a6578;
-        }
-
-        /* Filter Tabs */
         .filter-tabs {
             display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-label {
+            font-size: 14px;
+            color: #666;
+            margin-right: 8px;
         }
 
         .filter-tab {
-            padding: 10px 20px;
-            border-radius: 24px;
-            border: 2px solid #e5e0d8;
-            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 14px;
             font-weight: 500;
             cursor: pointer;
+            border: none;
+            background: transparent;
+            color: #666;
             transition: all 0.2s;
-            color: #5a6578;
         }
 
         .filter-tab:hover {
-            border-color: #3d5a45;
             color: #3d5a45;
         }
 
         .filter-tab.active {
             background: #3d5a45;
-            border-color: #3d5a45;
             color: white;
         }
 
-        /* Guide Grid */
-        .guide-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        .sort-by {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .sort-by select {
+            border: none;
+            background: none;
+            color: #3d5a45;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* Guide List */
+        .guide-list {
+            display: flex;
+            flex-direction: column;
             gap: 24px;
         }
 
-        .guide-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .guide-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-        }
-
-        .guide-image {
-            height: 220px;
-            background: linear-gradient(135deg, #e8e0d5 0%, #d4cfc7 100%);
-            background-size: cover;
-            background-position: center;
-        }
-
-        .guide-content {
+        .guide-row {
+            display: flex;
+            gap: 24px;
             padding: 24px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            transition: box-shadow 0.2s;
         }
 
-        .guide-type {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #3d5a45;
-            background: #e8f0ea;
-            padding: 4px 10px;
-            border-radius: 4px;
-            margin-bottom: 12px;
+        .guide-row:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
         }
 
-        .guide-name {
+        .guide-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .guide-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .guide-title {
             font-size: 20px;
             font-weight: 600;
-            margin-bottom: 8px;
-            color: #3d5a45;
-        }
-
-        .guide-bio {
-            font-size: 14px;
-            color: #5a6578;
-            margin-bottom: 16px;
-            line-height: 1.6;
+            color: #333;
+            margin-bottom: 4px;
+            line-height: 1.3;
         }
 
         .guide-meta {
-            padding-top: 16px;
-            border-top: 1px solid #e8f0ea;
-        }
-
-        .guide-pricing {
-            text-align: center;
+            font-size: 14px;
+            color: #666;
             margin-bottom: 12px;
         }
 
+        .guide-meta strong {
+            color: #333;
+        }
+
+        .guide-bio {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .guide-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 12px;
+            min-width: 180px;
+        }
+
         .guide-price {
-            font-size: 24px;
+            text-align: center;
+        }
+
+        .guide-price-amount {
+            font-size: 28px;
             font-weight: 700;
-            color: #3d5a45;
+            color: #333;
         }
 
         .guide-price-label {
-            font-size: 14px;
-            color: #6b7280;
+            font-size: 13px;
+            color: #666;
         }
 
-        .guide-book {
-            display: block;
-            width: 100%;
-            background: #8fbc8f;
+        .guide-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #4ade80;
             color: #1a1a1a;
-            padding: 14px 18px;
-            border-radius: 24px;
-            font-size: 16px;
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-size: 15px;
             font-weight: 600;
             border: none;
             cursor: pointer;
             transition: background 0.2s;
-            text-align: center;
+            width: 100%;
         }
 
-        .guide-book:hover {
-            background: #7dab7d;
+        .guide-cta:hover {
+            background: #3bca6e;
         }
 
-        .guide-reviews {
+        .guide-cta::after {
+            content: '›';
+            font-size: 18px;
+        }
+
+        .guide-rating {
             display: flex;
-            justify-content: center;
             align-items: center;
             gap: 6px;
-            margin-top: 12px;
             font-size: 14px;
         }
 
         .guide-stars {
             color: #fbbf24;
-            letter-spacing: 2px;
         }
 
         .guide-review-count {
-            color: #6b7280;
-        }
-
-        .guide-topics {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-        }
-
-        .guide-topic {
-            font-size: 12px;
-            color: #6b7280;
-            background: #f5f0e8;
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
-
-        /* Waitlist Section */
-        .waitlist-section {
-            background: #3d5a45;
-            padding: 80px 24px;
-            text-align: center;
-            color: white;
-        }
-
-        .waitlist-section h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .waitlist-section p {
-            font-size: 18px;
-            opacity: 0.9;
-            margin-bottom: 32px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .waitlist-form {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .waitlist-input {
-            flex: 1;
-            min-width: 250px;
-            padding: 16px 20px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-family: inherit;
-        }
-
-        .waitlist-input:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
-        }
-
-        .waitlist-btn {
-            background: white;
-            color: #3d5a45;
-            padding: 16px 28px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: inherit;
-            transition: transform 0.2s;
-        }
-
-        .waitlist-btn:hover {
-            transform: scale(1.02);
-        }
-
-        .waitlist-success {
-            display: none;
-            font-size: 18px;
-            margin-top: 16px;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            background: white;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            text-align: center;
-        }
-
-        .step {
-            padding: 24px;
-        }
-
-        .step-number {
-            width: 48px;
-            height: 48px;
-            background: #e8f0ea;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 700;
-            color: #3d5a45;
-            margin: 0 auto 20px;
-        }
-
-        .step h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .step p {
-            font-size: 14px;
-            color: #5a6578;
+            color: #666;
         }
 
         /* Footer */
         .footer {
-            background: #3d5a45;
+            background: #333;
             color: rgba(255,255,255,0.7);
             padding: 40px 24px;
             text-align: center;
-            font-size: 14px;
+            margin-top: 48px;
         }
 
         .footer a {
@@ -446,251 +356,224 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .header {
+                padding: 12px 16px;
+                height: auto;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .search-bar {
+                order: 3;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .nav-right {
+                gap: 16px;
+            }
+
+            .nav-link {
+                display: none;
+            }
+
             .hero h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
 
-            .hero p {
-                font-size: 16px;
+            .guide-row {
+                flex-direction: column;
+                padding: 16px;
             }
 
-            .section {
-                padding: 48px 20px;
+            .guide-photo {
+                width: 100%;
+                height: 200px;
             }
 
-            .section-header h2 {
-                font-size: 26px;
+            .guide-actions {
+                width: 100%;
+                align-items: stretch;
             }
 
-            .guide-grid {
-                grid-template-columns: 1fr;
+            .guide-price {
+                text-align: left;
             }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <a href="#" class="logo">
-            <div class="logo-mark">P</div>
-            <span class="logo-text">Petrus</span>
-        </a>
-        <a href="#waitlist" class="header-cta">Join Waitlist</a>
+        <a href="#" class="logo">Petrus</a>
+        <nav class="nav-left">
+            <button class="categories-btn">Categories</button>
+            <div class="search-bar">
+                <input type="text" placeholder="Search guides...">
+            </div>
+        </nav>
+        <nav class="nav-right">
+            <a href="#" class="nav-link">Dashboard</a>
+            <a href="#" class="nav-link">Browse</a>
+            <a href="#" class="nav-link">Answers</a>
+            <div class="nav-profile"></div>
+        </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Therapy helps millions, but it doesn't help everyone.</h1>
-            <p>Millions live disconnected and without a sense of home. Anxiety within, alienation without, and a sense of absurdity with the world. The scientific world gives us tools for innovation, but it cannot tell us how to live. Few of us know where to turn to develop the transformative wisdom necessary to build a meaningful life.</p>
-            <a href="#guides" class="hero-cta">Find Your Guide</a>
-            <a href="#how" class="hero-secondary">Learn More</a>
+            <h1>Physicians of the Soul</h1>
+            <p>Millions live disconnected and without a sense of home. The scientific world gives us tools for innovation, but it cannot tell us how to live. These are the people who can help.</p>
         </div>
     </section>
 
-    <section class="section how-it-works" id="how">
-        <div class="section-header">
-            <h2>How it works</h2>
-        </div>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Browse guides</h3>
-                <p>Explore profiles of chaplains, philosophers, and spiritual directors. Read their approach. Find someone who resonates.</p>
+    <main class="main">
+        <div class="filter-bar">
+            <div class="filter-tabs">
+                <span class="filter-label">Showing:</span>
+                <button class="filter-tab active">All</button>
+                <button class="filter-tab">Featured</button>
+                <button class="filter-tab">Popular</button>
+                <button class="filter-tab">New</button>
             </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Book a conversation</h3>
-                <p>Schedule a video call at a time that works for you. No subscriptions, no commitments.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Talk about what matters</h3>
-                <p>Meaning, grief, ethics, purpose — the questions therapy doesn't reach. Just a real conversation with someone trained to listen.</p>
+            <div class="sort-by">
+                <span>Sort by:</span>
+                <select>
+                    <option>Best Match</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Highest Rated</option>
+                </select>
             </div>
         </div>
-    </section>
 
-    <section class="section" id="guides">
-        <div class="section-header">
-            <h2>Meet the guides</h2>
-            <p>People trained in the conversations that actually change things</p>
-        </div>
-
-        <div class="filter-tabs">
-            <button class="filter-tab active">All</button>
-            <button class="filter-tab">Chaplains</button>
-            <button class="filter-tab">Philosophers</button>
-            <button class="filter-tab">Spiritual Directors</button>
-            <button class="filter-tab">Pastors</button>
-        </div>
-
-        <div class="guide-grid">
+        <div class="guide-list">
             <!-- Guide 1 -->
-            <div class="guide-card">
-                <div class="guide-image" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop');"></div>
-                <div class="guide-content">
-                    <span class="guide-type">Secular Chaplain</span>
-                    <h3 class="guide-name">Dr. Sarah Chen</h3>
-                    <p class="guide-bio">Hospital chaplain for 12 years. Trained in meaning-centered counseling. Specializes in grief, transitions, and existential questions.</p>
-                    <div class="guide-topics">
-                        <span class="guide-topic">Grief</span>
-                        <span class="guide-topic">Meaning</span>
-                        <span class="guide-topic">Transitions</span>
+            <div class="guide-row">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=320&h=320&fit=crop" alt="Dr. Sarah Chen" class="guide-photo">
+                <div class="guide-info">
+                    <h3 class="guide-title">Grief, Loss, and Finding Meaning After</h3>
+                    <p class="guide-meta"><strong>Dr. Sarah Chen</strong> · Secular Chaplain · Boston, MA</p>
+                    <p class="guide-bio">Hospital chaplain for 12 years. Trained in meaning-centered counseling. I've sat with hundreds of people through their darkest moments — loss of loved ones, terminal diagnoses, the collapse of everything they thought they knew. I don't offer easy answers. I offer presence, and a space to make sense of what can't be fixed.</p>
+                </div>
+                <div class="guide-actions">
+                    <div class="guide-price">
+                        <span class="guide-price-amount">$1</span>
+                        <span class="guide-price-label">per minute</span>
                     </div>
-                    <div class="guide-meta">
-                        <div class="guide-pricing">
-                            <span class="guide-price">$1</span>
-                            <span class="guide-price-label"> per minute</span>
-                        </div>
-                        <button class="guide-book">Request a Call</button>
-                        <div class="guide-reviews">
-                            <span class="guide-stars">★★★★★</span>
-                            <span class="guide-review-count">(142)</span>
-                        </div>
+                    <button class="guide-cta">Request a Call</button>
+                    <div class="guide-rating">
+                        <span class="guide-stars">★★★★★</span>
+                        <span class="guide-review-count">(142)</span>
                     </div>
                 </div>
             </div>
 
             <!-- Guide 2 -->
-            <div class="guide-card">
-                <div class="guide-image" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop');"></div>
-                <div class="guide-content">
-                    <span class="guide-type">Philosopher</span>
-                    <h3 class="guide-name">Marcus Webb</h3>
-                    <p class="guide-bio">PhD in Ethics. Runs philosophical counseling practice. Helps people think through moral dilemmas and life decisions with clarity.</p>
-                    <div class="guide-topics">
-                        <span class="guide-topic">Ethics</span>
-                        <span class="guide-topic">Decisions</span>
-                        <span class="guide-topic">Purpose</span>
+            <div class="guide-row">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=320&h=320&fit=crop" alt="Marcus Webb" class="guide-photo">
+                <div class="guide-info">
+                    <h3 class="guide-title">Ethics, Hard Decisions, and How to Live</h3>
+                    <p class="guide-meta"><strong>Marcus Webb</strong> · Philosopher · New York, NY</p>
+                    <p class="guide-bio">PhD in Ethics from Columbia. I run a philosophical counseling practice for people facing impossible choices. Should you leave? Should you stay? What do you owe your parents? Your children? Yourself? I help people think clearly through the fog of moral confusion — not to give you answers, but to help you find your own.</p>
+                </div>
+                <div class="guide-actions">
+                    <div class="guide-price">
+                        <span class="guide-price-amount">$2</span>
+                        <span class="guide-price-label">per minute</span>
                     </div>
-                    <div class="guide-meta">
-                        <div class="guide-pricing">
-                            <span class="guide-price">$2</span>
-                            <span class="guide-price-label"> per minute</span>
-                        </div>
-                        <button class="guide-book">Request a Call</button>
-                        <div class="guide-reviews">
-                            <span class="guide-stars">★★★★★</span>
-                            <span class="guide-review-count">(89)</span>
-                        </div>
+                    <button class="guide-cta">Request a Call</button>
+                    <div class="guide-rating">
+                        <span class="guide-stars">★★★★★</span>
+                        <span class="guide-review-count">(89)</span>
                     </div>
                 </div>
             </div>
 
             <!-- Guide 3 -->
-            <div class="guide-card">
-                <div class="guide-image" style="background-image: url('https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=400&h=400&fit=crop');"></div>
-                <div class="guide-content">
-                    <span class="guide-type">Spiritual Director</span>
-                    <h3 class="guide-name">Rev. James Okafor</h3>
-                    <p class="guide-bio">Interfaith minister with 20 years experience. Guides people exploring spirituality outside traditional religion. Warm, non-dogmatic.</p>
-                    <div class="guide-topics">
-                        <span class="guide-topic">Spirituality</span>
-                        <span class="guide-topic">Faith</span>
-                        <span class="guide-topic">Exploration</span>
+            <div class="guide-row">
+                <img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=320&h=320&fit=crop" alt="Rev. James Okafor" class="guide-photo">
+                <div class="guide-info">
+                    <h3 class="guide-title">Spirituality Without Dogma</h3>
+                    <p class="guide-meta"><strong>Rev. James Okafor</strong> · Interfaith Minister · London, UK</p>
+                    <p class="guide-bio">20 years guiding people who feel spiritually hungry but can't return to organized religion. I work with seekers, doubters, and the spiritually homeless. No agenda, no conversion — just honest exploration of the questions that keep you up at night. What do you believe? What do you want to believe? Let's find out together.</p>
+                </div>
+                <div class="guide-actions">
+                    <div class="guide-price">
+                        <span class="guide-price-amount">$1.50</span>
+                        <span class="guide-price-label">per minute</span>
                     </div>
-                    <div class="guide-meta">
-                        <div class="guide-pricing">
-                            <span class="guide-price">$1.50</span>
-                            <span class="guide-price-label"> per minute</span>
-                        </div>
-                        <button class="guide-book">Request a Call</button>
-                        <div class="guide-reviews">
-                            <span class="guide-stars">★★★★★</span>
-                            <span class="guide-review-count">(203)</span>
-                        </div>
+                    <button class="guide-cta">Request a Call</button>
+                    <div class="guide-rating">
+                        <span class="guide-stars">★★★★★</span>
+                        <span class="guide-review-count">(203)</span>
                     </div>
                 </div>
             </div>
 
             <!-- Guide 4 -->
-            <div class="guide-card">
-                <div class="guide-image" style="background-image: url('https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop');"></div>
-                <div class="guide-content">
-                    <span class="guide-type">Stoic Practitioner</span>
-                    <h3 class="guide-name">Elena Vasquez</h3>
-                    <p class="guide-bio">Modern Stoicism teacher. Helps people build resilience, manage anxiety, and find equanimity through ancient wisdom applied today.</p>
-                    <div class="guide-topics">
-                        <span class="guide-topic">Resilience</span>
-                        <span class="guide-topic">Anxiety</span>
-                        <span class="guide-topic">Wisdom</span>
+            <div class="guide-row">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=320&h=320&fit=crop" alt="Elena Vasquez" class="guide-photo">
+                <div class="guide-info">
+                    <h3 class="guide-title">Resilience, Anxiety, and the Stoic Path</h3>
+                    <p class="guide-meta"><strong>Elena Vasquez</strong> · Stoic Practitioner · Austin, TX</p>
+                    <p class="guide-bio">Modern Stoicism teacher. The ancient philosophers weren't ivory tower academics — they were practical psychologists who developed tools to handle chaos, loss, and uncertainty. I teach those tools. If you're anxious about things you can't control, drowning in comparison, or just exhausted by modern life, we should talk.</p>
+                </div>
+                <div class="guide-actions">
+                    <div class="guide-price">
+                        <span class="guide-price-amount">$1.50</span>
+                        <span class="guide-price-label">per minute</span>
                     </div>
-                    <div class="guide-meta">
-                        <div class="guide-pricing">
-                            <span class="guide-price">$1.50</span>
-                            <span class="guide-price-label"> per minute</span>
-                        </div>
-                        <button class="guide-book">Request a Call</button>
-                        <div class="guide-reviews">
-                            <span class="guide-stars">★★★★☆</span>
-                            <span class="guide-review-count">(67)</span>
-                        </div>
+                    <button class="guide-cta">Request a Call</button>
+                    <div class="guide-rating">
+                        <span class="guide-stars">★★★★☆</span>
+                        <span class="guide-review-count">(67)</span>
                     </div>
                 </div>
             </div>
 
             <!-- Guide 5 -->
-            <div class="guide-card">
-                <div class="guide-image" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop');"></div>
-                <div class="guide-content">
-                    <span class="guide-type">Pastor</span>
-                    <h3 class="guide-name">Pastor David Kim</h3>
-                    <p class="guide-bio">Progressive Christian minister. Open to doubt, questions, and seekers. Conversations grounded in faith but never preachy.</p>
-                    <div class="guide-topics">
-                        <span class="guide-topic">Faith</span>
-                        <span class="guide-topic">Purpose</span>
-                        <span class="guide-topic">Doubt</span>
+            <div class="guide-row">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=320&h=320&fit=crop" alt="Pastor David Kim" class="guide-photo">
+                <div class="guide-info">
+                    <h3 class="guide-title">Faith, Doubt, and Everything In Between</h3>
+                    <p class="guide-meta"><strong>Pastor David Kim</strong> · Progressive Pastor · Seattle, WA</p>
+                    <p class="guide-bio">I'm a pastor who welcomes doubt. If you grew up religious and left, or never believed but feel something missing, or still believe but have questions you can't ask in church — I'm here. No judgment, no preaching. Just honest conversation about faith, meaning, and what it all might mean.</p>
+                </div>
+                <div class="guide-actions">
+                    <div class="guide-price">
+                        <span class="guide-price-amount">$1</span>
+                        <span class="guide-price-label">per minute</span>
                     </div>
-                    <div class="guide-meta">
-                        <div class="guide-pricing">
-                            <span class="guide-price">$1</span>
-                            <span class="guide-price-label"> per minute</span>
-                        </div>
-                        <button class="guide-book">Request a Call</button>
-                        <div class="guide-reviews">
-                            <span class="guide-stars">★★★★★</span>
-                            <span class="guide-review-count">(178)</span>
-                        </div>
+                    <button class="guide-cta">Request a Call</button>
+                    <div class="guide-rating">
+                        <span class="guide-stars">★★★★★</span>
+                        <span class="guide-review-count">(178)</span>
                     </div>
                 </div>
             </div>
 
             <!-- Guide 6 -->
-            <div class="guide-card">
-                <div class="guide-image" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop');"></div>
-                <div class="guide-content">
-                    <span class="guide-type">Buddhist Teacher</span>
-                    <h3 class="guide-name">Tara Mitchell</h3>
-                    <p class="guide-bio">Secular Buddhist practitioner. 15 years meditation teaching. Specializes in suffering, impermanence, and finding peace with uncertainty.</p>
-                    <div class="guide-topics">
-                        <span class="guide-topic">Suffering</span>
-                        <span class="guide-topic">Peace</span>
-                        <span class="guide-topic">Meditation</span>
+            <div class="guide-row">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=320&h=320&fit=crop" alt="Tara Mitchell" class="guide-photo">
+                <div class="guide-info">
+                    <h3 class="guide-title">Suffering, Impermanence, and Finding Peace</h3>
+                    <p class="guide-meta"><strong>Tara Mitchell</strong> · Buddhist Teacher · Portland, OR</p>
+                    <p class="guide-bio">15 years teaching meditation and Buddhist philosophy — the secular kind, no religious conversion required. I help people who are struggling with suffering they can't escape, change they can't accept, or uncertainty that keeps them frozen. Sometimes the path forward is learning to be with what is.</p>
+                </div>
+                <div class="guide-actions">
+                    <div class="guide-price">
+                        <span class="guide-price-amount">$2</span>
+                        <span class="guide-price-label">per minute</span>
                     </div>
-                    <div class="guide-meta">
-                        <div class="guide-pricing">
-                            <span class="guide-price">$2</span>
-                            <span class="guide-price-label"> per minute</span>
-                        </div>
-                        <button class="guide-book">Request a Call</button>
-                        <div class="guide-reviews">
-                            <span class="guide-stars">★★★★★</span>
-                            <span class="guide-review-count">(256)</span>
-                        </div>
+                    <button class="guide-cta">Request a Call</button>
+                    <div class="guide-rating">
+                        <span class="guide-stars">★★★★★</span>
+                        <span class="guide-review-count">(256)</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section class="waitlist-section" id="waitlist">
-        <h2>We're launching soon</h2>
-        <p>Join the waitlist to get early access when we open — and help us find the right guides.</p>
-        <form class="waitlist-form" id="waitlist-form">
-            <input type="email" class="waitlist-input" placeholder="your@email.com" required id="email">
-            <button type="submit" class="waitlist-btn">Join Waitlist</button>
-        </form>
-        <p class="waitlist-success" id="success-msg">✓ You're on the list. We'll be in touch.</p>
-    </section>
+    </main>
 
     <footer class="footer">
         <p>Questions? <a href="mailto:annissap11@gmail.com">Get in touch</a></p>
@@ -704,27 +587,6 @@
                 this.classList.add('active');
             });
         });
-
-        // Waitlist form
-        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            console.log('Waitlist signup:', email);
-            // Here you would send to backend
-            this.style.display = 'none';
-            document.getElementById('success-msg').style.display = 'block';
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
     </script>
 </body>
 </html>
-<!-- updated Fri Mar 13 11:39:31 AM UTC 2026 -->
