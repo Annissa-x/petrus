@@ -58,6 +58,34 @@
             color: #1d3a2d;
         }
 
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px 16px;
+            gap: 10px;
+            min-width: 220px;
+        }
+
+        .search-icon {
+            font-size: 14px;
+            opacity: 0.5;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            font-size: 14px;
+            width: 100%;
+            background: transparent;
+        }
+
+        .search-bar input::placeholder {
+            color: #999;
+        }
+
         .nav-right {
             display: flex;
             align-items: center;
@@ -119,22 +147,32 @@
             flex: 1;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 32px;
         }
 
-        .hero-box-cta a {
+        .cta-main {
             color: white;
             font-size: 27px;
             font-weight: 500;
             text-decoration: none;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            width: 100%;
+            gap: 16px;
         }
 
-        .hero-box-cta span {
+        .cta-main span {
             font-size: 35px;
+        }
+
+        .cta-learn {
+            color: rgba(255,255,255,0.8);
+            font-size: 20px;
+            text-decoration: none;
+            margin-left: auto;
+        }
+
+        .cta-learn:hover {
+            color: white;
         }
 
         .hero h1 {
@@ -1046,8 +1084,12 @@
         <nav class="nav-left">
             <a href="#" class="nav-link">About</a>
             <a href="#guides" class="nav-link">Browse</a>
-            <a href="#" class="nav-link">How It Works</a>
+            <a href="#how-section" class="nav-link">How It Works</a>
         </nav>
+        <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search teachers, topics...">
+        </div>
         <nav class="nav-right">
             <a href="#guides" class="nav-cta">Find a Teacher</a>
         </nav>
@@ -1062,10 +1104,11 @@
                     <p>Millions live disconnected and without a sense of home. The scientific world gives us tools for innovation, but it cannot tell us how to live.</p>
                 </div>
                 <div class="hero-box-cta">
-                    <a href="#guides">
+                    <a href="#guides" class="cta-main">
                         Find Your Teacher
                         <span>→</span>
                     </a>
+                    <a href="#how-section" class="cta-learn">Learn More</a>
                 </div>
             </div>
 
@@ -1201,7 +1244,7 @@
     </div>
 
     <!-- How It Works Section -->
-    <section class="how-it-works">
+    <section class="how-it-works" id="how-section">
         <h2 class="section-title">How it works</h2>
         
         <div class="how-grid">
