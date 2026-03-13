@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Teachers — Petrus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #faf8f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: #2d4a3d;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 400;
+            color: white;
+            text-decoration: none;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .nav-link:hover {
+            color: white;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            padding: 10px 16px;
+            gap: 10px;
+            min-width: 300px;
+            margin-left: 20px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            font-size: 14px;
+            width: 100%;
+            background: transparent;
+            color: white;
+        }
+
+        .search-bar input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .header-right {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .profile-menu {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .profile-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(180deg, #4a90a4 0%, #4a90a4 33%, #6ba3b5 33%, #6ba3b5 66%, #c4d4a0 66%, #c4d4a0 100%);
+        }
+
+        .profile-name {
+            font-size: 15px;
+            color: white;
+            font-weight: 400;
+        }
+
+        .profile-arrow {
+            font-size: 10px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Categories */
+        .categories {
+            background: white;
+            padding: 40px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category {
+            display: flex;
+            gap: 16px;
+        }
+
+        .category-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .category-icon.grief { background: #e8d4d4; }
+        .category-icon.philosophy { background: #d4e8d4; }
+        .category-icon.faith { background: #d4d4e8; }
+        .category-icon.mindfulness { background: #e8e8d4; }
+        .category-icon.life { background: #d4e8e8; }
+        .category-icon.stoicism { background: #e8d4e8; }
+        .category-icon.meaning { background: #d4e0e8; }
+        .category-icon.other { background: #e8e4d4; }
+
+        .category-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .category-content p {
+            font-size: 12px;
+            color: #888;
+            line-height: 1.4;
+        }
+
+        /* Filters */
+        .filters {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filter-tabs {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-tabs span {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .filter-tab {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #666;
+        }
+
+        .filter-tab.active {
+            background: #2d4a3d;
+            color: white;
+        }
+
+        .sort-by {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .sort-by select {
+            border: none;
+            background: transparent;
+            color: #2d4a3d;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        /* Teacher List */
+        .teacher-list {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px 60px;
+        }
+
+        .teacher-card {
+            display: flex;
+            gap: 24px;
+            padding: 32px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .teacher-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .teacher-info {
+            flex: 1;
+        }
+
+        .teacher-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+        }
+
+        .teacher-meta {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 12px;
+        }
+
+        .teacher-bio {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .teacher-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 12px;
+            min-width: 160px;
+        }
+
+        .teacher-price {
+            text-align: center;
+        }
+
+        .price-amount {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .request-btn {
+            background: #5a9a7a;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .request-btn:hover {
+            background: #4a8a6a;
+        }
+
+        .teacher-rating {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+        }
+
+        .stars {
+            color: #f4c150;
+        }
+
+        .review-count {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Petrus</a>
+        <a href="#" class="nav-link">Categories ▾</a>
+        <div class="search-bar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2">
+                <circle cx="10" cy="10" r="7"></circle>
+                <path d="M15 15l6 6"></path>
+            </svg>
+            <input type="text" placeholder="Search teachers, topics...">
+        </div>
+        <div class="header-right">
+            <a href="#" class="nav-link">Dashboard</a>
+            <a href="#" class="nav-link">Browse</a>
+            <a href="#" class="nav-link">Answers</a>
+            <div class="profile-menu">
+                <div class="profile-avatar"></div>
+                <span class="profile-name">Me</span>
+                <span class="profile-arrow">▾</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="categories">
+        <div class="categories-grid">
+            <div class="category">
+                <div class="category-icon grief">💔</div>
+                <div class="category-content">
+                    <h4>Grief & Loss</h4>
+                    <p>Bereavement, Death, Mourning, Healing</p>
+                </div>
+            </div>
+            <div class="category">
+                <div class="category-icon philosophy">🏛️</div>
+                <div class="category-content">
+                    <h4>Philosophy</h4>
+                    <p>Ethics, Existence, Meaning, Wisdom</p>
+                </div>
+            </div>
+            <div class="category">
+                <div class="category-icon faith">🙏</div>
+                <div class="category-content">
+                    <h4>Faith & Spirituality</h4>
+                    <p>Religion, Doubt, Belief, Practice</p>
+                </div>
+            </div>
+            <div class="category">
+                <div class="category-icon mindfulness">🧘</div>
+                <div class="category-content">
+                    <h4>Mindfulness</h4>
+                    <p>Meditation, Presence, Calm, Focus</p>
+                </div>
+            </div>
+            <div class="category">
+                <div class="category-icon life">🌱</div>
+                <div class="category-content">
+                    <h4>Life Transitions</h4>
+                    <p>Career, Relationships, Identity, Growth</p>
+                </div>
+            </div>
+            <div class="category">
+                <div class="category-icon stoicism">⚖️</div>
+                <div class="category-content">
+                    <h4>Stoicism</h4>
+                    <p>Marcus Aurelius, Seneca, Resilience</p>
+                </div>
+            </div>
+            <div class="category">
+                <div class="category-icon meaning">✨</div>
+                <div class="category-content">
+                    <h4>Meaning & Purpose</h4>
+                    <p>Direction, Fulfillment, Values</p>
+                </div>
+            </div>
+            <div class="category">
+                <div class="category-icon other">🌀</div>
+                <div class="category-content">
+                    <h4>Other</h4>
+                    <p>Metanoia, Buddhism, Existentialism</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="filters">
+        <div class="filter-tabs">
+            <span>Showing:</span>
+            <a href="#" class="filter-tab active">Featured</a>
+            <a href="#" class="filter-tab">Popular</a>
+            <a href="#" class="filter-tab">New</a>
+        </div>
+        <div class="sort-by">
+            Sort by: <select><option>Best Match</option></select>
+        </div>
+    </div>
+
+    <div class="teacher-list">
+        <div class="teacher-card">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=240&h=240&fit=crop" alt="Sarah Chen" class="teacher-photo">
+            <div class="teacher-info">
+                <h3 class="teacher-title">Finding Peace Through Loss and Grief</h3>
+                <p class="teacher-meta">Sarah Chen · Hospice Chaplain · Boston, MA</p>
+                <p class="teacher-bio">Most of my work is in hospitals — with patients, families, and sometimes staff who've seen too much. I don't come with scripture or answers. I come to listen. I help people find meaning in suffering and peace in uncertainty.</p>
+            </div>
+            <div class="teacher-actions">
+                <div class="teacher-price">
+                    <span class="price-amount">$1</span>
+                    <span class="price-label">per minute</span>
+                </div>
+                <a href="#" class="request-btn">Request a Call →</a>
+                <div class="teacher-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="review-count">(142)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="teacher-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&h=240&fit=crop" alt="Marcus Webb" class="teacher-photo">
+            <div class="teacher-info">
+                <h3 class="teacher-title">Philosophical Counseling for Life's Big Questions</h3>
+                <p class="teacher-meta">Marcus Webb · Philosophical Counselor · New York, NY</p>
+                <p class="teacher-bio">I trained in academic philosophy but found I was more interested in helping real people think than writing papers no one reads. Whether you're facing a career crossroads, questioning your beliefs, or just trying to figure out what matters — I can help you think it through.</p>
+            </div>
+            <div class="teacher-actions">
+                <div class="teacher-price">
+                    <span class="price-amount">$2</span>
+                    <span class="price-label">per minute</span>
+                </div>
+                <a href="#" class="request-btn">Request a Call →</a>
+                <div class="teacher-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="review-count">(89)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="teacher-card">
+            <img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=240&h=240&fit=crop" alt="James Okafor" class="teacher-photo">
+            <div class="teacher-info">
+                <h3 class="teacher-title">Interfaith Guidance for Spiritual Seekers</h3>
+                <p class="teacher-meta">James Okafor · Interfaith Minister · London, UK</p>
+                <p class="teacher-bio">I grew up in the church, left it, came back on my own terms. Now I work with people exploring what spirituality means to them — whether they're deconstructing old beliefs or building new ones. No judgment, just honest conversation.</p>
+            </div>
+            <div class="teacher-actions">
+                <div class="teacher-price">
+                    <span class="price-amount">$1.50</span>
+                    <span class="price-label">per minute</span>
+                </div>
+                <a href="#" class="request-btn">Request a Call →</a>
+                <div class="teacher-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="review-count">(203)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="teacher-card">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=240&h=240&fit=crop" alt="Elena Vasquez" class="teacher-photo">
+            <div class="teacher-info">
+                <h3 class="teacher-title">Practical Stoicism for Modern Life</h3>
+                <p class="teacher-meta">Elena Vasquez · Stoicism Teacher · Austin, TX</p>
+                <p class="teacher-bio">I teach practical Stoicism — the daily exercises, the journaling practices, the mental frameworks that Marcus Aurelius and Seneca used. Not dusty philosophy, but tools you can actually use to handle anxiety, make decisions, and find equanimity.</p>
+            </div>
+            <div class="teacher-actions">
+                <div class="teacher-price">
+                    <span class="price-amount">$1.50</span>
+                    <span class="price-label">per minute</span>
+                </div>
+                <a href="#" class="request-btn">Request a Call →</a>
+                <div class="teacher-rating">
+                    <span class="stars">★★★★☆</span>
+                    <span class="review-count">(67)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="teacher-card">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=240&h=240&fit=crop" alt="Tara Mitchell" class="teacher-photo">
+            <div class="teacher-info">
+                <h3 class="teacher-title">Meditation and Mindfulness That Actually Works</h3>
+                <p class="teacher-meta">Tara Mitchell · Meditation Teacher · Portland, OR</p>
+                <p class="teacher-bio">I've taught meditation for 15 years, mostly to people who tried apps and podcasts but couldn't make it stick. I help you build a practice that fits your life — not the other way around. Let's find what works for you.</p>
+            </div>
+            <div class="teacher-actions">
+                <div class="teacher-price">
+                    <span class="price-amount">$2</span>
+                    <span class="price-label">per minute</span>
+                </div>
+                <a href="#" class="request-btn">Request a Call →</a>
+                <div class="teacher-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="review-count">(256)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
