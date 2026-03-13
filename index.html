@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petrus — Find meaning through conversation</title>
+    <title>Petrus — Physicians of the Soul</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,517 +16,630 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #f5f0e8 0%, #e8e0d5 100%);
-            min-height: 100vh;
+            background: #f9f7f4;
             color: #2d3748;
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px 24px;
-        }
-
         /* Header */
+        .header {
+            background: #3d5a45;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .logo {
-            text-align: center;
-            margin-bottom: 48px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
         }
 
-        .logo h1 {
-            font-size: 32px;
-            font-weight: 700;
-            color: #5c4934;
-            letter-spacing: -0.5px;
-        }
-
-        .logo-placeholder {
-            width: 60px;
-            height: 60px;
-            background: #5c4934;
-            border-radius: 12px;
-            margin: 0 auto 12px;
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             font-weight: 700;
-            font-size: 24px;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .header-cta {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .header-cta:hover {
+            background: rgba(255,255,255,0.25);
         }
 
         /* Hero */
         .hero {
+            background: linear-gradient(135deg, #3d5a45 0%, #2d4433 100%);
+            padding: 80px 24px;
             text-align: center;
-            margin-bottom: 48px;
+            color: white;
         }
 
-        .hero h2 {
-            font-size: 28px;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 16px;
-            line-height: 1.3;
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero p {
             font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: white;
+            color: #3d5a45;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        /* Section */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 64px 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #2d3748;
+        }
+
+        .section-header p {
+            font-size: 18px;
             color: #5a6578;
-            max-width: 480px;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 10px 20px;
+            border-radius: 24px;
+            border: 2px solid #e5e0d8;
+            background: white;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #5a6578;
+        }
+
+        .filter-tab:hover {
+            border-color: #3d5a45;
+            color: #3d5a45;
+        }
+
+        .filter-tab.active {
+            background: #3d5a45;
+            border-color: #3d5a45;
+            color: white;
+        }
+
+        /* Guide Grid */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .guide-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .guide-image {
+            height: 200px;
+            background: linear-gradient(135deg, #e8e0d5 0%, #d4cfc7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            color: #a89f94;
+        }
+
+        .guide-content {
+            padding: 24px;
+        }
+
+        .guide-type {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #3d5a45;
+            background: #e8f0ea;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .guide-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2d3748;
+        }
+
+        .guide-bio {
+            font-size: 14px;
+            color: #5a6578;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .guide-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid #f0ebe4;
+        }
+
+        .guide-topics {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .guide-topic {
+            font-size: 12px;
+            color: #6b7280;
+            background: #f5f0e8;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .guide-book {
+            background: #3d5a45;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .guide-book:hover {
+            background: #2d4433;
+        }
+
+        /* Coming Soon Overlay */
+        .coming-soon-overlay {
+            position: relative;
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #f59e0b;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Waitlist Section */
+        .waitlist-section {
+            background: #3d5a45;
+            padding: 80px 24px;
+            text-align: center;
+            color: white;
+        }
+
+        .waitlist-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .waitlist-section p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .waitlist-form {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            max-width: 500px;
             margin: 0 auto;
         }
 
-        /* Form Container */
-        .form-container {
-            background: white;
-            border-radius: 16px;
-            padding: 32px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-        }
-
-        .step {
-            display: none;
-        }
-
-        .step.active {
-            display: block;
-        }
-
-        .step-indicator {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 32px;
-        }
-
-        .step-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #d4cfc7;
-            transition: background 0.3s;
-        }
-
-        .step-dot.active {
-            background: #5c4934;
-        }
-
-        .step-dot.completed {
-            background: #8b7355;
-        }
-
-        .question {
-            font-size: 20px;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        /* Options */
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .option {
-            background: #f9f7f4;
-            border: 2px solid transparent;
-            border-radius: 12px;
+        .waitlist-input {
+            flex: 1;
+            min-width: 250px;
             padding: 16px 20px;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: left;
-        }
-
-        .option:hover {
-            background: #f5f0e8;
-            border-color: #d4cfc7;
-        }
-
-        .option.selected {
-            background: #f5f0e8;
-            border-color: #5c4934;
-        }
-
-        .option-title {
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 4px;
-        }
-
-        .option-desc {
-            font-size: 14px;
-            color: #6b7280;
-        }
-
-        /* Text Input */
-        .text-input {
-            width: 100%;
-            padding: 16px;
-            border: 2px solid #e5e0d8;
-            border-radius: 12px;
+            border: none;
+            border-radius: 10px;
             font-size: 16px;
             font-family: inherit;
-            resize: vertical;
-            min-height: 100px;
-            transition: border-color 0.2s;
         }
 
-        .text-input:focus {
+        .waitlist-input:focus {
             outline: none;
-            border-color: #5c4934;
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
         }
 
-        /* Navigation */
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 32px;
-            gap: 16px;
-        }
-
-        .btn {
-            padding: 14px 28px;
+        .waitlist-btn {
+            background: white;
+            color: #3d5a45;
+            padding: 16px 28px;
+            border: none;
             border-radius: 10px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
-            border: none;
             font-family: inherit;
+            transition: transform 0.2s;
         }
 
-        .btn-back {
-            background: transparent;
-            color: #6b7280;
+        .waitlist-btn:hover {
+            transform: scale(1.02);
         }
 
-        .btn-back:hover {
-            color: #2d3748;
+        .waitlist-success {
+            display: none;
+            font-size: 18px;
+            margin-top: 16px;
         }
 
-        .btn-next {
-            background: #5c4934;
-            color: white;
-            flex: 1;
-            max-width: 200px;
-            margin-left: auto;
+        /* How It Works */
+        .how-it-works {
+            background: white;
         }
 
-        .btn-next:hover {
-            background: #4a3a2a;
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            text-align: center;
         }
 
-        .btn-next:disabled {
-            background: #c4bdb3;
-            cursor: not-allowed;
+        .step {
+            padding: 24px;
         }
 
-        /* Final Step */
-        .success-icon {
-            width: 64px;
-            height: 64px;
-            background: #e8f5e9;
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: #e8f0ea;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 32px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #3d5a45;
+            margin: 0 auto 20px;
         }
 
-        .success-title {
-            font-size: 24px;
+        .step h3 {
+            font-size: 18px;
             font-weight: 600;
-            text-align: center;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
         }
 
-        .success-text {
-            text-align: center;
+        .step p {
+            font-size: 14px;
             color: #5a6578;
-            margin-bottom: 24px;
-        }
-
-        .email-input {
-            width: 100%;
-            padding: 16px;
-            border: 2px solid #e5e0d8;
-            border-radius: 12px;
-            font-size: 16px;
-            font-family: inherit;
-            margin-bottom: 16px;
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: #5c4934;
-        }
-
-        .btn-submit {
-            width: 100%;
-            background: #5c4934;
-            color: white;
-            padding: 16px;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: inherit;
-        }
-
-        .btn-submit:hover {
-            background: #4a3a2a;
-        }
-
-        /* Thank You */
-        .thank-you {
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .thank-you h3 {
-            font-size: 24px;
-            margin-bottom: 16px;
         }
 
         /* Footer */
         .footer {
+            background: #2d3748;
+            color: rgba(255,255,255,0.7);
+            padding: 40px 24px;
             text-align: center;
-            margin-top: 48px;
-            color: #8b8680;
             font-size: 14px;
         }
 
         .footer a {
-            color: #5c4934;
+            color: white;
             text-decoration: none;
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 24px 16px;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
             }
 
-            .hero h2 {
-                font-size: 24px;
+            .hero p {
+                font-size: 16px;
             }
 
-            .form-container {
-                padding: 24px 20px;
+            .section {
+                padding: 48px 20px;
             }
 
-            .question {
-                font-size: 18px;
+            .section-header h2 {
+                font-size: 26px;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <div class="logo-placeholder">P</div>
-            <h1>Petrus</h1>
+    <header class="header">
+        <a href="#" class="logo">
+            <div class="logo-mark">P</div>
+            <span class="logo-text">Petrus</span>
+        </a>
+        <a href="#waitlist" class="header-cta">Join Waitlist</a>
+    </header>
+
+    <section class="hero">
+        <h1>Therapy helps millions. This is for the rest of us.</h1>
+        <p>Connect with chaplains, philosophers, and guides — physicians of the soul — for conversations about what actually matters.</p>
+        <a href="#guides" class="hero-cta">Browse Guides</a>
+    </section>
+
+    <section class="section how-it-works" id="how">
+        <div class="section-header">
+            <h2>How it works</h2>
         </div>
-
-        <div class="hero">
-            <h2>Not therapy. Just someone who gets it.</h2>
-            <p>Connect with chaplains, pastors, and philosophers for conversations about what actually matters.</p>
-        </div>
-
-        <div class="form-container">
-            <div class="step-indicator">
-                <div class="step-dot active" data-step="1"></div>
-                <div class="step-dot" data-step="2"></div>
-                <div class="step-dot" data-step="3"></div>
-                <div class="step-dot" data-step="4"></div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Browse guides</h3>
+                <p>Explore profiles of chaplains, philosophers, and spiritual directors. Read their approach. Find someone who resonates.</p>
             </div>
-
-            <!-- Step 1: What brings you here -->
-            <div class="step active" data-step="1">
-                <div class="question">What's on your mind lately?</div>
-                <div class="options">
-                    <div class="option" data-value="meaning">
-                        <div class="option-title">Searching for meaning</div>
-                        <div class="option-desc">Feeling lost or questioning your purpose</div>
-                    </div>
-                    <div class="option" data-value="grief">
-                        <div class="option-title">Processing grief or loss</div>
-                        <div class="option-desc">Someone you loved, a relationship, a chapter of life</div>
-                    </div>
-                    <div class="option" data-value="transition">
-                        <div class="option-title">Life transition</div>
-                        <div class="option-desc">Career change, moving, becoming a parent, aging</div>
-                    </div>
-                    <div class="option" data-value="loneliness">
-                        <div class="option-title">Feeling disconnected</div>
-                        <div class="option-desc">Lonely even around people, craving real connection</div>
-                    </div>
-                    <div class="option" data-value="ethics">
-                        <div class="option-title">Moral questions</div>
-                        <div class="option-desc">Wrestling with a decision, what's right, who to be</div>
-                    </div>
-                    <div class="option" data-value="other">
-                        <div class="option-title">Something else</div>
-                        <div class="option-desc">Just need someone thoughtful to talk to</div>
-                    </div>
-                </div>
-                <div class="nav-buttons">
-                    <div></div>
-                    <button class="btn btn-next" disabled>Continue</button>
-                </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Book a conversation</h3>
+                <p>Schedule a video call at a time that works for you. No subscriptions, no commitments.</p>
             </div>
-
-            <!-- Step 2: What kind of guide -->
-            <div class="step" data-step="2">
-                <div class="question">Who would you feel comfortable talking to?</div>
-                <div class="options">
-                    <div class="option" data-value="chaplain">
-                        <div class="option-title">Chaplain</div>
-                        <div class="option-desc">Spiritual support without religious pressure — trained to listen, not convert</div>
-                    </div>
-                    <div class="option" data-value="pastor">
-                        <div class="option-title">Pastor or Priest</div>
-                        <div class="option-desc">Faith-grounded guidance, rooted in religious tradition</div>
-                    </div>
-                    <div class="option" data-value="philosopher">
-                        <div class="option-title">Philosopher</div>
-                        <div class="option-desc">Explore life's big questions through reason and dialogue</div>
-                    </div>
-                    <div class="option" data-value="open">
-                        <div class="option-title">I'm open</div>
-                        <div class="option-desc">Match me with whoever fits best</div>
-                    </div>
-                </div>
-                <div class="nav-buttons">
-                    <button class="btn btn-back">Back</button>
-                    <button class="btn btn-next" disabled>Continue</button>
-                </div>
-            </div>
-
-            <!-- Step 3: Religious background -->
-            <div class="step" data-step="3">
-                <div class="question">What's your relationship with religion?</div>
-                <div class="options">
-                    <div class="option" data-value="practicing">
-                        <div class="option-title">Practicing a faith</div>
-                        <div class="option-desc">Active in a religious tradition</div>
-                    </div>
-                    <div class="option" data-value="spiritual">
-                        <div class="option-title">Spiritual but not religious</div>
-                        <div class="option-desc">Believe in something, but not tied to organized religion</div>
-                    </div>
-                    <div class="option" data-value="questioning">
-                        <div class="option-title">Questioning or exploring</div>
-                        <div class="option-desc">Not sure what you believe, curious to explore</div>
-                    </div>
-                    <div class="option" data-value="secular">
-                        <div class="option-title">Secular / Not religious</div>
-                        <div class="option-desc">Not interested in religion, but open to meaning</div>
-                    </div>
-                    <div class="option" data-value="private">
-                        <div class="option-title">Prefer not to say</div>
-                        <div class="option-desc">That's okay — we'll still find a good match</div>
-                    </div>
-                </div>
-                <div class="nav-buttons">
-                    <button class="btn btn-back">Back</button>
-                    <button class="btn btn-next" disabled>Continue</button>
-                </div>
-            </div>
-
-            <!-- Step 4: Email capture -->
-            <div class="step" data-step="4">
-                <div class="success-icon">✨</div>
-                <div class="success-title">We're building something for you</div>
-                <div class="success-text">
-                    Petrus is launching soon. Leave your email and we'll reach out when we find the right person for you to talk to.
-                </div>
-                <input type="email" class="email-input" placeholder="your@email.com" id="email-input">
-                <button class="btn-submit" id="submit-btn">Join the waitlist</button>
-                <div class="nav-buttons">
-                    <button class="btn btn-back">Back</button>
-                    <div></div>
-                </div>
-            </div>
-
-            <!-- Thank you -->
-            <div class="step" data-step="5">
-                <div class="thank-you">
-                    <div class="success-icon">💛</div>
-                    <h3>You're on the list</h3>
-                    <p>We'll be in touch soon. In the meantime, take care of yourself.</p>
-                </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Talk about what matters</h3>
+                <p>Meaning, grief, ethics, purpose — the questions therapy doesn't reach. Just a real conversation with someone trained to listen.</p>
             </div>
         </div>
+    </section>
 
-        <div class="footer">
-            <p>Questions? <a href="mailto:annissap11@gmail.com">Get in touch</a></p>
+    <section class="section" id="guides">
+        <div class="section-header">
+            <h2>Meet the guides</h2>
+            <p>People trained in the conversations that actually change things</p>
         </div>
-    </div>
+
+        <div class="filter-tabs">
+            <button class="filter-tab active">All</button>
+            <button class="filter-tab">Chaplains</button>
+            <button class="filter-tab">Philosophers</button>
+            <button class="filter-tab">Spiritual Directors</button>
+            <button class="filter-tab">Pastors</button>
+        </div>
+
+        <div class="guide-grid">
+            <!-- Guide 1 -->
+            <div class="guide-card coming-soon-overlay">
+                <span class="coming-soon-badge">Coming Soon</span>
+                <div class="guide-image">👤</div>
+                <div class="guide-content">
+                    <span class="guide-type">Secular Chaplain</span>
+                    <h3 class="guide-name">Dr. Sarah Chen</h3>
+                    <p class="guide-bio">Hospital chaplain for 12 years. Trained in meaning-centered counseling. Specializes in grief, transitions, and existential questions.</p>
+                    <div class="guide-meta">
+                        <div class="guide-topics">
+                            <span class="guide-topic">Grief</span>
+                            <span class="guide-topic">Meaning</span>
+                        </div>
+                        <button class="guide-book" disabled>Notify Me</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guide 2 -->
+            <div class="guide-card coming-soon-overlay">
+                <span class="coming-soon-badge">Coming Soon</span>
+                <div class="guide-image">👤</div>
+                <div class="guide-content">
+                    <span class="guide-type">Philosopher</span>
+                    <h3 class="guide-name">Marcus Webb</h3>
+                    <p class="guide-bio">PhD in Ethics. Runs philosophical counseling practice. Helps people think through moral dilemmas and life decisions with clarity.</p>
+                    <div class="guide-meta">
+                        <div class="guide-topics">
+                            <span class="guide-topic">Ethics</span>
+                            <span class="guide-topic">Decisions</span>
+                        </div>
+                        <button class="guide-book" disabled>Notify Me</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guide 3 -->
+            <div class="guide-card coming-soon-overlay">
+                <span class="coming-soon-badge">Coming Soon</span>
+                <div class="guide-image">👤</div>
+                <div class="guide-content">
+                    <span class="guide-type">Spiritual Director</span>
+                    <h3 class="guide-name">Rev. James Okafor</h3>
+                    <p class="guide-bio">Interfaith minister with 20 years experience. Guides people exploring spirituality outside traditional religion. Warm, non-dogmatic.</p>
+                    <div class="guide-meta">
+                        <div class="guide-topics">
+                            <span class="guide-topic">Spirituality</span>
+                            <span class="guide-topic">Faith</span>
+                        </div>
+                        <button class="guide-book" disabled>Notify Me</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guide 4 -->
+            <div class="guide-card coming-soon-overlay">
+                <span class="coming-soon-badge">Coming Soon</span>
+                <div class="guide-image">👤</div>
+                <div class="guide-content">
+                    <span class="guide-type">Stoic Practitioner</span>
+                    <h3 class="guide-name">Elena Vasquez</h3>
+                    <p class="guide-bio">Modern Stoicism teacher. Helps people build resilience, manage anxiety, and find equanimity through ancient wisdom applied today.</p>
+                    <div class="guide-meta">
+                        <div class="guide-topics">
+                            <span class="guide-topic">Resilience</span>
+                            <span class="guide-topic">Anxiety</span>
+                        </div>
+                        <button class="guide-book" disabled>Notify Me</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guide 5 -->
+            <div class="guide-card coming-soon-overlay">
+                <span class="coming-soon-badge">Coming Soon</span>
+                <div class="guide-image">👤</div>
+                <div class="guide-content">
+                    <span class="guide-type">Pastor</span>
+                    <h3 class="guide-name">Pastor David Kim</h3>
+                    <p class="guide-bio">Progressive Christian minister. Open to doubt, questions, and seekers. Conversations grounded in faith but never preachy.</p>
+                    <div class="guide-meta">
+                        <div class="guide-topics">
+                            <span class="guide-topic">Faith</span>
+                            <span class="guide-topic">Purpose</span>
+                        </div>
+                        <button class="guide-book" disabled>Notify Me</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guide 6 -->
+            <div class="guide-card coming-soon-overlay">
+                <span class="coming-soon-badge">Coming Soon</span>
+                <div class="guide-image">👤</div>
+                <div class="guide-content">
+                    <span class="guide-type">Buddhist Teacher</span>
+                    <h3 class="guide-name">Tara Mitchell</h3>
+                    <p class="guide-bio">Secular Buddhist practitioner. 15 years meditation teaching. Specializes in suffering, impermanence, and finding peace with uncertainty.</p>
+                    <div class="guide-meta">
+                        <div class="guide-topics">
+                            <span class="guide-topic">Suffering</span>
+                            <span class="guide-topic">Peace</span>
+                        </div>
+                        <button class="guide-book" disabled>Notify Me</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="waitlist-section" id="waitlist">
+        <h2>We're launching soon</h2>
+        <p>Join the waitlist to get early access when we open — and help us find the right guides.</p>
+        <form class="waitlist-form" id="waitlist-form">
+            <input type="email" class="waitlist-input" placeholder="your@email.com" required id="email">
+            <button type="submit" class="waitlist-btn">Join Waitlist</button>
+        </form>
+        <p class="waitlist-success" id="success-msg">✓ You're on the list. We'll be in touch.</p>
+    </section>
+
+    <footer class="footer">
+        <p>Questions? <a href="mailto:annissap11@gmail.com">Get in touch</a></p>
+    </footer>
 
     <script>
-        let currentStep = 1;
-        const totalSteps = 5;
-        const responses = {};
-
-        // Option selection
-        document.querySelectorAll('.option').forEach(option => {
-            option.addEventListener('click', function() {
-                const step = this.closest('.step');
-                step.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-                this.classList.add('selected');
-                step.querySelector('.btn-next').disabled = false;
-                responses[`step${currentStep}`] = this.dataset.value;
+        // Filter tabs
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
             });
         });
 
-        // Next button
-        document.querySelectorAll('.btn-next').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (currentStep < totalSteps) {
-                    goToStep(currentStep + 1);
-                }
-            });
+        // Waitlist form
+        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            console.log('Waitlist signup:', email);
+            // Here you would send to backend
+            this.style.display = 'none';
+            document.getElementById('success-msg').style.display = 'block';
         });
 
-        // Back button
-        document.querySelectorAll('.btn-back').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (currentStep > 1) {
-                    goToStep(currentStep - 1);
-                }
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
-
-        // Submit button
-        document.getElementById('submit-btn').addEventListener('click', () => {
-            const email = document.getElementById('email-input').value;
-            if (email && email.includes('@')) {
-                responses.email = email;
-                console.log('Form submitted:', responses);
-                // Here you would normally send to a backend
-                // For now, just show thank you
-                goToStep(5);
-            }
-        });
-
-        function goToStep(step) {
-            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-            document.querySelector(`.step[data-step="${step}"]`).classList.add('active');
-            
-            document.querySelectorAll('.step-dot').forEach(dot => {
-                const dotStep = parseInt(dot.dataset.step);
-                dot.classList.remove('active', 'completed');
-                if (dotStep === step) dot.classList.add('active');
-                if (dotStep < step) dot.classList.add('completed');
-            });
-            
-            currentStep = step;
-        }
     </script>
 </body>
 </html>
