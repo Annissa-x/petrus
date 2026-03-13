@@ -16,14 +16,20 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #fff;
+            background: #faf8f5;
             color: #333;
             line-height: 1.6;
         }
 
+        /* Decorative elements */
+        .squiggle {
+            position: absolute;
+            pointer-events: none;
+        }
+
         /* Header */
         .header {
-            background: #3d5a45;
+            background: #2d4a3d;
             padding: 0 24px;
             display: flex;
             align-items: center;
@@ -123,27 +129,72 @@
 
         /* Hero */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), 
-                        url('https://upload.wikimedia.org/wikipedia/commons/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg') center/cover no-repeat;
-            padding: 60px 24px;
+            background: #2d4a3d;
+            padding: 80px 24px;
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,200,150,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(150,200,180,0.15) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .hero-content {
-            max-width: 1100px;
+            max-width: 800px;
             margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 42px;
+            font-size: 48px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            position: relative;
+        }
+
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: rgba(255,180,130,0.5);
+            z-index: -1;
+            transform: skewX(-5deg);
         }
 
         .hero p {
             font-size: 18px;
-            opacity: 0.95;
+            opacity: 0.9;
             max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
         }
 
         /* Main Content */
@@ -215,16 +266,17 @@
 
         /* Guide List */
         .guide-list {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 8px 32px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.04);
         }
 
         .guide-row {
             display: flex;
             gap: 24px;
-            padding: 24px 0;
-            border-bottom: 1px solid #eee;
+            padding: 32px 0;
+            border-bottom: 1px dashed #e0dcd5;
         }
 
         .guide-row:last-child {
@@ -301,20 +353,21 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background: #4ade80;
-            color: #1a1a1a;
+            background: #e07850;
+            color: white;
             padding: 14px 24px;
-            border-radius: 6px;
+            border-radius: 24px;
             font-size: 15px;
             font-weight: 600;
             border: none;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s;
             width: 100%;
         }
 
         .guide-cta:hover {
-            background: #3bca6e;
+            background: #c96840;
+            transform: translateY(-1px);
         }
 
         .guide-cta::after {
@@ -417,9 +470,13 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Therapy helps millions, but it doesn't help everyone.</h1>
+            <h1>Therapy helps millions, but it <span>doesn't help everyone.</span></h1>
             <p>Millions live disconnected and without a sense of home. Anxiety within, alienation without, and a sense of absurdity with the world. The scientific world gives us tools for innovation, but it cannot tell us how to live. Few of us know where to turn to develop the transformative wisdom necessary to build a meaningful life.</p>
         </div>
+        <!-- Hand-drawn decorative squiggle -->
+        <svg class="squiggle" style="bottom: 20px; right: 10%; width: 120px; opacity: 0.3;" viewBox="0 0 100 20">
+            <path d="M0,10 Q25,0 50,10 T100,10" stroke="#ffb482" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
     </section>
 
     <main class="main">
