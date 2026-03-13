@@ -67,11 +67,11 @@
             padding: 10px 16px;
             gap: 10px;
             min-width: 220px;
+            margin-right: 24px;
         }
 
         .search-icon {
-            font-size: 14px;
-            opacity: 0.5;
+            flex-shrink: 0;
         }
 
         .search-bar input {
@@ -188,6 +188,16 @@
             font-size: 22px;
             color: #2d4a3d;
             line-height: 1.6;
+        }
+
+        .learn-more-link {
+            color: #2d4a3d;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .learn-more-link:hover {
+            opacity: 0.8;
         }
 
         /* Right column - 1 box with 3 cards */
@@ -1134,7 +1144,10 @@
             <a href="#how-section" class="nav-link">How It Works</a>
         </nav>
         <div class="search-bar">
-            <span class="search-icon">🔍</span>
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.35-4.35"></path>
+            </svg>
             <input type="text" placeholder="Search teachers, topics...">
         </div>
         <nav class="nav-right">
@@ -1148,14 +1161,13 @@
             <div class="hero-left">
                 <div class="hero-box-main">
                     <h1>Therapy helps millions. But it doesn't help everyone.</h1>
-                    <p>Millions live disconnected and without a sense of home. The scientific world gives us tools for innovation, but it cannot tell us how to live.</p>
+                    <p>Millions live disconnected and without a sense of home. The scientific world gives us tools for innovation, but it cannot tell us how to live. <a href="#how-section" class="learn-more-link">Learn More</a></p>
                 </div>
                 <div class="hero-box-cta">
                     <a href="#guides" class="cta-main">
                         Find Your Teacher
                         <span>→</span>
                     </a>
-                    <a href="#how-section" class="cta-learn">Learn More</a>
                 </div>
             </div>
 
