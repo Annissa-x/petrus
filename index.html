@@ -227,11 +227,18 @@
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 16px;
+            width: 100%;
         }
 
-        .cta-main span {
-            font-size: 35px;
+        .cta-main svg {
+            margin-left: auto;
+            width: 32px;
+            height: 32px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-main:hover svg {
+            transform: translateX(8px);
         }
 
         .cta-learn {
