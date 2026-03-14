@@ -488,14 +488,26 @@
             border: 1px dashed #b0bec5;
             width: 200px;
             position: relative;
+            animation: floatCard 4s ease-in-out infinite;
+        }
+
+        .feature-card:nth-child(1) {
+            animation-delay: 0s;
         }
 
         .feature-card:nth-child(2) {
             margin-top: 40px;
+            animation-delay: 0.5s;
         }
 
         .feature-card:nth-child(3) {
             margin-top: 20px;
+            animation-delay: 1s;
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
 
         /* Clarity-style Booking Mockup */
